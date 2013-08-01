@@ -653,7 +653,7 @@ class Ckan_client
 		$response = curl_exec($this->ch);
 		$info = curl_getinfo($this->ch);
 		// Check HTTP response code
-		if ($info['http_code'] !== 200 || $info['http_code'] !== 201)
+		if ($info['http_code'] !== 200 && $info['http_code'] !== 201)
 		{
 			throw new Exception($info['http_code'] . ': ' .
 				$this->http_status_codes[$info['http_code']]);
